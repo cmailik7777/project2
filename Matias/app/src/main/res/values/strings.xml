@@ -1,0 +1,20 @@
+ <resources>
+    <string name="app_name">Matias</string>
+    <string name="fix">Введите пароль</string>
+    <string name="sklad">Склад</string>
+    <string name="prinyat">Принять</string>
+    <string name="otgruzit">Отгрузить</string>
+     <string name="zayavka">Посмтореть текущую заявку</string>
+    <string name="text1">Прием коробки по QR коду</string>
+    <string name="text">Зубенко Михаил Петрович</string>
+    <string name="text2">Просмотр имеющихся коробок на складе</string>
+     <string name="title_activity_login">Логин</string>
+     <string name="title_activity_menu">Меню</string>
+     <string name="title_activity_sklad">Склад</string>
+     <string name="title_activity_otgusit">Отгрузить</string>
+     <string name="title_activity_prinyat">Принять</string>
+     <string name="title_activity_prinyat_bar">Принять QR</string>
+     <string name="title_activity_zapros">Принять Запрос</string>
+     <string name="action_settings">Settings</string>
+     <string name="button_otpr">Отправить</string>
+ </resources>

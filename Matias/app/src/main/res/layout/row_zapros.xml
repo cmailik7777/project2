@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:padding="4dp"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+
+
+
+    <TextView
+        android:text="Номер коробки:"
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView103"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+        android:textStyle="bold"/>
+
+
+
+    <TextView
+        android:id="@+id/zapros_nomer_korobki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView103"
+        android:layout_alignBottom="@+id/textView103"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="56dp"
+        android:layout_marginEnd="-34dp"
+        android:layout_marginRight="-34dp"
+        android:layout_marginBottom="-7dp"
+        android:layout_toRightOf="@+id/textView103"
+        android:padding="4dp"
+        android:text="1"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"/>
+
+    <TextView
+        android:text="Номер банка:"
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView103"
+        android:layout_alignLeft="@+id/textView103"
+        android:layout_alignStart="@+id/textView103"
+        android:id="@+id/textView104"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/zapros_nomer_banka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView104"
+        android:layout_alignBottom="@+id/textView104"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView104"
+        android:padding="4dp"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+        android:text="1" />
+
+
+
+</RelativeLayout>
