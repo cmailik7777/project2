@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Network;
 import android.os.Build;
 import android.os.Bundle;
 import android.renderscript.Sampler;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.matias.service.NetworkService;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -162,6 +165,9 @@ public class Login extends AppCompatActivity {
 
             NameValuerPair.add(new BasicNameValuePair("pin",PinS));
 
+
+
+
             try{
                 HttpClient httpClient = new DefaultHttpClient();
                 HttpPost httpPost = new HttpPost("http://gps-monitor.kz/TESTMatias/MatiasVhod.php");
@@ -169,9 +175,11 @@ public class Login extends AppCompatActivity {
                 HttpResponse resArr = httpClient.execute(httpPost);
                 HttpEntity entity = resArr.getEntity();
                 is = entity.getContent();
-                Log.e("pass 1", "connection succes");
+
+//                NetworkService.executeRequest();
+//                Log.e("pass 1", "connection succes");
             } catch (Exception e){
-                Log.e("Fail 1", e.toString());
+//                Log.e("Fail 1", e.toString());
 
                 runOnUiThread(new Runnable() {
                     @Override
@@ -300,4 +308,11 @@ public class Login extends AppCompatActivity {
     }
 
 
+}
+
+
+class Student {
+    String name;
+    String surname;
+    int age;
 }

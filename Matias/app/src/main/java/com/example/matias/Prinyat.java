@@ -42,6 +42,7 @@ public class Prinyat extends AppCompatActivity {
     SharedPreferences savePref;
 
     public static final String SAVED_BAR = "saved_text";
+    ArrayList<String> results = new ArrayList();
 
 
 
@@ -77,43 +78,44 @@ public class Prinyat extends AppCompatActivity {
         public void handleResult(final Result result) {
             final String resultCode = result.getText();
             //Toast.makeText(QRCode.this, resultCode, Toast.LENGTH_LONG).show();
-final String res1 = resultCode + " " +"|";
+            results.add(resultCode+ " |");
+//        final String res1 = resultCode + " " +"|";
 
 
 
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(Prinyat.this);
-            builder.setTitle("Штрих код распознан!")
-                    .setMessage(resultCode + " \nВерно?")
-                    .setCancelable(false)
-                    .setNegativeButton("Нет",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    scannerView = new ZXingScannerView(Prinyat.this);
-                                    scannerView.setResultHandler(new Prinyat.ZXingScannerResultHandler());
-
-                                    setContentView(scannerView);
-                                    scannerView.startCamera();
-                                    dialog.dismiss();
-                                }
-                            })
-                    .setPositiveButton("Да", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            SharedPreferences savepref = getSharedPreferences(SAVED_BAR, Context.MODE_PRIVATE);
-                            SharedPreferences.Editor ed = savepref.edit();
-                            ed.putString("res1", res1);
-                            ed.apply();
-
-                            Intent intent = new Intent(Prinyat.this, PrinyatBar.class);
-                            startActivity(intent);
-
-
-                        }
-                    });
-            AlertDialog alert = builder.create();
-            alert.show();
+//
+//            AlertDialog.Builder builder = new AlertDialog.Builder(Prinyat.this);
+//            builder.setTitle("Штрих код распознан!")
+//                    .setMessage(resultCode + " \nВерно?")
+//                    .setCancelable(false)
+//                    .setNegativeButton("Нет",
+//                            new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    scannerView = new ZXingScannerView(Prinyat.this);
+//                                    scannerView.setResultHandler(new Prinyat.ZXingScannerResultHandler());
+//
+//                                    setContentView(scannerView);
+//                                    scannerView.startCamera();
+//                                    dialog.dismiss();
+//                                }
+//                            })
+//                    .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                            SharedPreferences savepref = getSharedPreferences(SAVED_BAR, Context.MODE_PRIVATE);
+//                            SharedPreferences.Editor ed = savepref.edit();
+////                            ed.putString("res1", res1);
+//                            ed.apply();
+//
+//                            Intent intent = new Intent(Prinyat.this, PrinyatBar.class);
+//                            startActivity(intent);
+//
+//
+//                        }
+//                    });
+//            AlertDialog alert = builder.create();
+//            alert.show();
 
             scannerView.stopCamera();
         }
@@ -125,7 +127,7 @@ final String res1 = resultCode + " " +"|";
     protected void onPause() {
         super.onPause();
         scannerView.stopCamera();
-        Log.e("-----OTGRUS-----", "onPause");
+//        Log.e("-----OTGRUS-----", "onPause");
 
     }
 

@@ -40,6 +40,8 @@ import static com.example.matias.Prinyat.SAVED_BAR;
 import static com.example.matias.PrinyatBar.SAVED_QR;
 
 public class Zapros extends AppCompatActivity  {
+    String RESULTS = "results";
+
     private Zapross zapross;
     ProgressDialog progressDialog;
     ArrayList<DataZapros> dataZapros;
@@ -47,11 +49,13 @@ public class Zapros extends AppCompatActivity  {
     Button otpr;
     ListView listView;
     String pin;
+    ArrayList<String> results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.zapros_activity);
+        results = getIntent().getStringArrayListExtra(RESULTS);
 
         otpr = findViewById(R.id.button_otpr);
         listView = findViewById(R.id.list);
@@ -112,7 +116,7 @@ public class Zapros extends AppCompatActivity  {
                     try {
                         zapross.join();
                     } catch (InterruptedException ie) {
-                        Log.e("pass 0", ie.getMessage());
+//                        Log.e("pass 0", ie.getMessage());
                     }
                 }
             }).start();
@@ -134,12 +138,11 @@ public class Zapros extends AppCompatActivity  {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void run() {
 
+        ArrayList<NameValuePair> nameValuerPair = new ArrayList<NameValuePair>(10);
 
-
-        ArrayList<NameValuePair> NameValuerPair = new ArrayList<NameValuePair>(10);
-
-        NameValuerPair.add(new BasicNameValuePair("pin", Pin));
-
+        nameValuerPair.add(new BasicNameValuePair("num", results.get(0)));
+        nameValuerPair.add(new BasicNameValuePair("numbank", results.get(1)));
+        nameValuerPair.add(new BasicNameValuePair("pin", Pin));
 
 //
 //        int j = 1;
@@ -161,7 +164,7 @@ public class Zapros extends AppCompatActivity  {
 
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("http://gps-monitor.kz/TESTMatias/Prinyat.php");
-            httpPost.setEntity(new UrlEncodedFormEntity(NameValuerPair, "UTF-8"));
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuerPair, "UTF-8"));
             HttpResponse resArr = httpClient.execute(httpPost);
             HttpEntity entity = resArr.getEntity();
             is = entity.getContent();
